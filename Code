@@ -1,0 +1,41 @@
+#program to create a dice rolling simulator
+#there will be 2 players
+#they will be allowed to choose how many rounds they wanna play
+#in each round there result will be calculated
+#after a defined round,will check who won
+
+
+import random
+def DiceRollingSimulator():
+    player1,player2=input("enter ur names").split(',')
+    
+    print(f"welcome {player1} & {player2} to the Dice Rolling Simulator ..")
+    rounds=int(input("Please choose the number of rounds you both want to play....."))
+    p1=0
+    p2=0
+    i=0
+    Dice=range(1,6)
+    
+    while i<rounds:
+        i+=1
+        player1_score=random.choice(Dice)
+        player2_score=random.choice(Dice)
+        
+        print(f"{player1} got a {player1_score}")
+        print(f"{player2} got a {player2_score}")
+        
+        if player1_score > player2_score:
+            print(f"{player1} won round no.{i}")
+            p1+=1
+        elif player2_score > player1_score:
+            print(f"{player2} won round no.{i}")
+            p2+=1
+        else:
+            print("TIE")
+    if p1>p2:
+        print(f"{player1} won the match by winning {p1} rounds...")
+    elif p2>p1:
+        print(f"{player2} won the match by winning {p2} rounds...")
+    else:
+        print("Both players won same number of rounds..so it's a tie !!!!!!")
+DiceRollingSimulator()
